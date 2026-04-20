@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DDLNY · Product Development (Jira Mockup)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<!-- ======================== TOP NAV (Jira-style) ======================== -->
+<header class="top">
+  <div class="top-left">
+    <div class="logo"><span class="logo-mark">J</span><span class="logo-text">Jira</span></div>
+    <nav class="top-nav">
+      <a class="active">Your work</a>
+      <a>Projects ▾</a>
+      <a>Filters</a>
+      <a>Dashboards</a>
+      <a>Teams</a>
+      <a>Apps</a>
+    </nav>
+    <button class="create-btn">+ Create</button>
+  </div>
+  <div class="top-right">
+    <input class="search" placeholder="Search styles, PO#, CAD…" id="globalSearch"/>
+    <!-- Role switcher -->
+    <div class="role-switch">
+      <label>View as:</label>
+      <select id="roleSelect">
+        <option value="ddlny">DDLNY Admin (you — full access)</option>
+        <option value="dnj">DNJ Vendor (Rajesh · India)</option>
+        <option value="elegant">Elegant Vendor (Priya · India)</option>
+      </select>
+    </div>
+    <div class="avatar" id="currentAvatar">AM</div>
+  </div>
+</header>
+
+<!-- Permission banner -->
+<div class="perm-banner" id="permBanner"></div>
+
+<!-- ======================== LAYOUT ======================== -->
+<div class="layout">
+  <!-- ===== LEFT SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="proj-switch">
+      <div class="proj-avatar" id="projAvatar">PD</div>
+      <div>
+        <div class="proj-name" id="projName">Product Development</div>
+        <div class="proj-type">Company-managed · Jewelry</div>
+      </div>
+    </div>
+
+    <div class="side-section">
+      <div class="side-heading">Projects visible to you</div>
+      <ul class="side-list" id="projectList"></ul>
+    </div>
+
+    <div class="side-section">
+      <div class="side-heading">Views</div>
+      <ul class="side-list">
+        <li class="active" data-view="dashboard">📊 Dashboard</li>
+        <li data-view="board">📋 Board</li>
+        <li data-view="gallery">🖼 Gallery</li>
+        <li data-view="list">📄 List</li>
+        <li data-view="collections">📚 Collections</li>
+        <li data-view="reports">📈 Reports</li>
+        <li data-view="timeline">🗓 Timeline</li>
+      </ul>
+    </div>
+
+    <div class="side-section">
+      <div class="side-heading">Shortcuts</div>
+      <ul class="side-list">
+        <li>⭐ My styles</li>
+        <li>🔔 Awaiting my feedback</li>
+        <li>⏰ Overdue</li>
+        <li>💎 1Kt hot styles</li>
+      </ul>
+    </div>
+
+    <div class="side-section">
+      <div class="side-heading">Team (DDLNY)</div>
+      <ul class="side-list compact" id="teamList"></ul>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main" id="mainContent">
+    <div class="loading">Loading …</div>
+  </main>
+</div>
+
+<!-- Style detail drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+  <div class="drawer-panel" id="drawerPanel"></div>
+</div>
+
+<!-- Create issue modal -->
+<div class="modal" id="createModal">
+  <div class="modal-backdrop" onclick="closeCreate()"></div>
+  <div class="modal-panel">
+    <div class="modal-header">
+      <h2>Create Style</h2>
+      <button class="icon-btn" onclick="closeCreate()">✕</button>
+    </div>
+    <div class="modal-body" id="createBody"></div>
+  </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

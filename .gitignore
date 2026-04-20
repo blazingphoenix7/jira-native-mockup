@@ -1,0 +1,17 @@
+# --- Secrets ---
+.env
+.env.*
+*.secret
+
+# --- Local tooling / IDE ---
+.claude/
+__pycache__/
+*.pyc
+.playwright/
+
+# --- Intermediate build artifacts (regenerable from scripts/) ---
+derived/
+
+# --- Large raw source not needed for the mockup ---
+# The extracted data lives in mockup/data.json; keep the 99 MB Excel local.
+13 April - I5DIA MOM-4 meetings. (Compiled) v0.1.xlsx
