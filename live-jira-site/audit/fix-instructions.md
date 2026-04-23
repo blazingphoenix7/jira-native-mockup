@@ -14,12 +14,13 @@ If you're on a fresh machine (macOS / different PC), do these once:
    cd jira-native-mockup
    ```
 
-2. **Create `.env`** at the repo root with (get JIRA_TOKEN from your existing Windows `.env` or regenerate at `https://id.atlassian.com/manage-profile/security/api-tokens`):
+2. **Create `.env`** directly INSIDE the `live-jira-site/` folder (same level as `README.md`, `audit/`, `memory-snapshot/`, `state/`). Get `JIRA_TOKEN` from your Windows `.env`, or regenerate at `https://id.atlassian.com/manage-profile/security/api-tokens`:
    ```
    JIRA_SITE=ddlny-pd.atlassian.net
    JIRA_EMAIL=aaryan@ddlny.com
    JIRA_TOKEN=<your API token>
    ```
+   **⚠️ Do NOT commit this file.** If you plan to `git commit` any fix results back, add a `.gitignore` inside `live-jira-site/` with just `.env` on a single line, or keep the file out of any `git add` commands.
 
 3. **Set up the two browsers on this machine:**
    - **Brave** → log into `aaryan@ddlny.com` (admin). Install Claude for Chrome extension.
@@ -47,9 +48,9 @@ Use the right tool for each fix — some things are API-friendly, others are UI-
    scheme 10102, workflow c033275e-560c-4ec2-a24c-6c157af7d0a5, etc.).
 
 ## Credentials
-`.env` at the repo root. Keys: `JIRA_SITE`, `JIRA_EMAIL`, `JIRA_TOKEN`. Basic Auth on REST
-calls. Base URL: `https://${JIRA_SITE}/rest/api/3/`. If `.env` is missing, stop and ask
-the user to create it per step 0.2 above.
+`.env` inside the `live-jira-site/` folder (same directory as `README.md`). Keys: `JIRA_SITE`,
+`JIRA_EMAIL`, `JIRA_TOKEN`. Basic Auth on REST calls. Base URL: `https://${JIRA_SITE}/rest/api/3/`.
+If `.env` is missing, stop and ask the user to create it per step 0.2 above.
 
 ## Browser control (Claude Chrome extension)
 User has **two browsers open, each logged in as a different persona** — this is a deliberate
