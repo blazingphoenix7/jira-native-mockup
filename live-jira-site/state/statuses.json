@@ -1,0 +1,18 @@
+{
+  "note": "DNJ Style Workflow statuses. IDs allocated when the workflow was created (POST /rest/api/3/workflows/create). 'Received by DDLNY India' (10136) removed 2026-04-22 because DDLNY India does QC at the vendor's factory, not at a separate India office.",
+  "statuses": [
+    { "id": "10131", "name": "Concept / R&D",         "category": "TODO" },
+    { "id": "10132", "name": "Design",                "category": "IN_PROGRESS" },
+    { "id": "10133", "name": "CAD",                   "category": "IN_PROGRESS" },
+    { "id": "10134", "name": "PO",                    "category": "IN_PROGRESS" },
+    { "id": "10135", "name": "Sample Production",     "category": "IN_PROGRESS" },
+    { "id": "10137", "name": "QC by DDLNY India",     "category": "IN_PROGRESS" },
+    { "id": "10138", "name": "In Transit to NYC",     "category": "IN_PROGRESS" },
+    { "id": "10139", "name": "Received by DDLNY NYC", "category": "IN_PROGRESS" },
+    { "id": "10140", "name": "Approved",              "category": "DONE" },
+    { "id": "10141", "name": "Repair",                "category": "IN_PROGRESS" },
+    { "id": "10142", "name": "Credit",                "category": "DONE" },
+    { "id": "10143", "name": "Hold",                  "category": "IN_PROGRESS" },
+    { "id": "10144", "name": "Cancelled",             "category": "DONE" }
+  ]
+}

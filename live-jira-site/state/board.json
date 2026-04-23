@@ -1,0 +1,11 @@
+{
+  "note": "The DNJ Kanban board — the main UI surface for DDLNY and (later) DNJ vendor users.",
+  "board": {
+    "id": 69,
+    "name": "DNJ board",
+    "type": "kanban",
+    "filter_id": 10068,
+    "filter_jql": "project = DNJ AND issuetype = Style ORDER BY Rank ASC"
+  },
+  "columns_note": "14 visible columns + 1 backlog column. One column per Style status, ordered to match the DNJ Style Workflow phase order. Column config is stored at /rest/greenhopper/1.0/rapidviewconfig/columns (not via public REST)."
+}

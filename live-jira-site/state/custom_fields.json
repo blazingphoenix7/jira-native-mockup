@@ -1,0 +1,197 @@
+{
+  "note": "Custom fields created on the Jira site. All GLOBAL scope. Field visibility on screens configured separately.",
+  "fields": [
+    {
+      "name": "DDLNY Style #",
+      "id": "customfield_10071",
+      "type": "short_text"
+    },
+    {
+      "name": "Vendor Style #",
+      "id": "customfield_10072",
+      "type": "short_text"
+    },
+    {
+      "name": "PO # / D-code",
+      "id": "customfield_10073",
+      "type": "short_text"
+    },
+    {
+      "name": "Category",
+      "id": "customfield_10074",
+      "type": "select",
+      "context_id": "10244",
+      "options": [
+        {
+          "id": "10040",
+          "value": "Bangle"
+        },
+        {
+          "id": "10041",
+          "value": "Bracelet"
+        },
+        {
+          "id": "10042",
+          "value": "Brooch"
+        },
+        {
+          "id": "10043",
+          "value": "Earring"
+        },
+        {
+          "id": "10044",
+          "value": "Necklace"
+        },
+        {
+          "id": "10045",
+          "value": "Pendant"
+        },
+        {
+          "id": "10046",
+          "value": "Ring"
+        }
+      ]
+    },
+    {
+      "name": "Diamond Quality",
+      "id": "customfield_10075",
+      "type": "short_text"
+    },
+    {
+      "name": "Diamond Weight (ct)",
+      "id": "customfield_10076",
+      "type": "number"
+    },
+    {
+      "name": "Gold Color",
+      "id": "customfield_10078",
+      "type": "select",
+      "context_id": "10248",
+      "options": [
+        {
+          "id": "10047",
+          "value": "Rose"
+        },
+        {
+          "id": "10048",
+          "value": "Two-tone"
+        },
+        {
+          "id": "10049",
+          "value": "White"
+        },
+        {
+          "id": "10050",
+          "value": "Yellow"
+        }
+      ]
+    },
+    {
+      "name": "Gold Quality",
+      "id": "customfield_10079",
+      "type": "select",
+      "context_id": "10249",
+      "options": [
+        {
+          "id": "10035",
+          "value": "10K"
+        },
+        {
+          "id": "10036",
+          "value": "14K"
+        },
+        {
+          "id": "10037",
+          "value": "18K"
+        },
+        {
+          "id": "10038",
+          "value": "22K"
+        },
+        {
+          "id": "10039",
+          "value": "24K"
+        }
+      ]
+    },
+    {
+      "name": "Gold Weight (g)",
+      "id": "customfield_10080",
+      "type": "number"
+    },
+    {
+      "name": "Target Price (USD)",
+      "id": "customfield_10081",
+      "type": "number"
+    },
+    {
+      "name": "Cloud Files URL",
+      "id": "customfield_10082",
+      "type": "url"
+    },
+    {
+      "name": "Source",
+      "id": "customfield_10083",
+      "type": "short_text"
+    },
+    {
+      "name": "Labels",
+      "id": "customfield_10084",
+      "type": "multiselect",
+      "context_id": "10254",
+      "options_note": "Test seed options added 2026-04-22 for test data import. DDLNY admin to finalize. Alphabetical.",
+      "options_seeded": [
+        "1KT",
+        "Bridal",
+        "Engagement",
+        "Everyday",
+        "Holiday",
+        "Rush",
+        "Signature"
+      ]
+    },
+    {
+      "name": "Diamond Type",
+      "id": "customfield_10122",
+      "type": "multiselect",
+      "context_id": "10292",
+      "options": [
+        {
+          "id": "10128",
+          "value": "LGD"
+        },
+        {
+          "id": "10129",
+          "value": "Natural"
+        }
+      ],
+      "note": "Converted from single-select to multi-select 2026-04-22 \u2014 user can select both LGD and Natural."
+    },
+    {
+      "name": "Diamond Color",
+      "id": "customfield_10118",
+      "type": "short_text"
+    },
+    {
+      "name": "Diamond Shapes",
+      "id": "customfield_10119",
+      "type": "short_text"
+    },
+    {
+      "name": "Gemstone Types",
+      "id": "customfield_10120",
+      "type": "short_text"
+    },
+    {
+      "name": "Gemstone Shapes",
+      "id": "customfield_10121",
+      "type": "short_text"
+    },
+    {
+      "name": "Collection",
+      "id": "customfield_10123",
+      "type": "short_text",
+      "note": "Converted from single-select to plain text 2026-04-22 per user \u2014 no fixed option list, free entry."
+    }
+  ]
+}

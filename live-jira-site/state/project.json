@@ -1,0 +1,60 @@
+{
+    "expand": "description,lead,issueTypes,url,projectKeys,permissions,insight",
+    "self": "https://ddlny-pd.atlassian.net/rest/api/3/project/10068",
+    "id": "10068",
+    "key": "DNJ",
+    "description": "DNJ vendor - Styles, Collections, Sub-tasks. Managed by DDLNY PD team.",
+    "lead": {
+        "self": "https://ddlny-pd.atlassian.net/rest/api/3/user?accountId=712020:2dbb4cab-a68e-4cd8-93fd-d104a229a87f",
+        "accountId": "712020:2dbb4cab-a68e-4cd8-93fd-d104a229a87f",
+        "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/7506448c08aa5637a3f74ca76415d402?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAM-3.png",
+            "24x24": "https://secure.gravatar.com/avatar/7506448c08aa5637a3f74ca76415d402?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAM-3.png",
+            "16x16": "https://secure.gravatar.com/avatar/7506448c08aa5637a3f74ca76415d402?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAM-3.png",
+            "32x32": "https://secure.gravatar.com/avatar/7506448c08aa5637a3f74ca76415d402?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FAM-3.png"
+        },
+        "displayName": "Aaryan Mehta",
+        "active": true
+    },
+    "components": [],
+    "issueTypes": [
+        {
+            "self": "https://ddlny-pd.atlassian.net/rest/api/3/issuetype/10080",
+            "id": "10080",
+            "description": "A small, distinct piece of work.",
+            "iconUrl": "https://ddlny-pd.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Style",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+        },
+        {
+            "self": "https://ddlny-pd.atlassian.net/rest/api/3/issuetype/10115",
+            "id": "10115",
+            "description": "A small, distinct piece of work.",
+            "iconUrl": "https://ddlny-pd.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10300?size=medium",
+            "name": "Task",
+            "subtask": false,
+            "avatarId": 10300,
+            "hierarchyLevel": 0
+        }
+    ],
+    "assigneeType": "PROJECT_LEAD",
+    "versions": [],
+    "name": "DNJ",
+    "roles": {
+        "atlassian-addons-project-access": "https://ddlny-pd.atlassian.net/rest/api/3/project/10068/role/10003",
+        "Administrators": "https://ddlny-pd.atlassian.net/rest/api/3/project/10068/role/10002"
+    },
+    "avatarUrls": {
+        "48x48": "https://ddlny-pd.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10414",
+        "24x24": "https://ddlny-pd.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10414?size=small",
+        "16x16": "https://ddlny-pd.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10414?size=xsmall",
+        "32x32": "https://ddlny-pd.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10414?size=medium"
+    },
+    "projectTypeKey": "software",
+    "simplified": false,
+    "style": "classic",
+    "isPrivate": false,
+    "properties": {}
+}

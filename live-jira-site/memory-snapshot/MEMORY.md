@@ -1,0 +1,13 @@
+- [User role](user_role.md) — DDLNY (NYC jewelry wholesale) employee, zero Jira experience, building vendor dashboard.
+- [Project context](project_context.md) — DDLNY PD team ↔ India vendors DNJ + Elegant; vendors MUST NOT see each other's work.
+- [Current scope](scope_current.md) — as of 2026-04-22: DNJ only; Elegant deferred (but keep architecture Elegant-ready).
+- [Env setup](env_setup.md) — Miniconda at `C:\Users\AaryanMehta\miniconda3`, env `jira-dashboard`, conda-forge only.
+- [Run scripts](run_scripts.md) — always via `./scripts/run.sh` (wraps `conda run -n jira-dashboard python`).
+- [Mockup approach](mockup_approach.md) — real data from DNJ Excel loaded into HTML mockup; served on :8765.
+- [Jira automation plan](jira_automation_plan.md) — REST API (Option A) for admin, Playwright (Option B) for UI-only.
+- [Project names](project_names.md) — Jira projects named exactly "DNJ" and "Elegant" (no suffixes).
+- [Sub-tasks + Create dialog](subtasks_and_create_dialog.md) — sub-tasks from day one; Create dialog needs 3 distinct flows (Style/Collection/Sub-task).
+- [Fidelity approach](fidelity_approach.md) — strict 3-phase order: audit → native-pixel rebuild → new features; no aspirational mockup drift.
+- [Transition policy](transition_policy.md) — DDLNY-only phase transitions; vendors never move Styles, even to Repair/Hold/Cancelled.
+- [Show reasoning](show_reasoning.md) — put thinking in the visible response; CLI does NOT render hidden thinking blocks.
+- [Dropdown conventions](feedback_dropdowns.md) — always alphabetical, always correct spellings; silently correct user typos.

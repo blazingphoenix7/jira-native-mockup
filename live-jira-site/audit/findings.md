@@ -16,6 +16,13 @@
 ## How to read an entry
 Each finding lists: **Where** (location in Jira) · **Repro** (steps) · **Expected** (desired behavior) · **Actual** (observed behavior) · **Fix** (suggested resolution) · **Severity**.
 
+## On `[BUILDER CONTEXT]` annotations (added 2026-04-22)
+Some findings have `[BUILDER CONTEXT]` notes appended. These were added by the Claude session that actually built the Jira site (as opposed to the audit session that produced this report). The builder session has the concrete decision history that the audit session did not, so the annotation either:
+- **Reclassifies a finding to `CORRECT-BY-DESIGN`** when the audit flagged something the user explicitly chose. Nothing to fix — memory spec is stale, update it.
+- **Confirms the finding is valid** (per user's revised decision or an oversight in the build) and notes that the user has requested the fix be deferred to a separate round.
+
+The original audit body is preserved unchanged; `[BUILDER CONTEXT]` appears only as a new bullet after the existing Severity line. Nothing was deleted.
+
 ---
 
 ## Findings
@@ -46,6 +53,7 @@ Each finding lists: **Where** (location in Jira) · **Repro** (steps) · **Expec
 - **Actual:** Only Style + Task. No Sub-task type, so sub-tasks cannot be created. No Collection type, so Styles cannot be grouped.
 - **Fix:** Project settings → Issue types → add Sub-task (hierarchyLevel -1, subtask=true) and Collection (probably hierarchyLevel 1 as an Epic-style parent, or 0 if you want flat grouping). Decide hierarchy intentionally — Jira's Collection ≠ Epic by default.
 - **Severity:** MAJOR (blocks sub-task flows and collection grouping; depending on roadmap could be a blocker)
+- **[BUILDER CONTEXT — reclassify to CORRECT-BY-DESIGN, 2026-04-22]:** NOT A BUG. User explicitly renamed the Sub-task issue type to "Task" and converted it from `hierarchy=-1` (child-only) to `hierarchy=0` (standalone) so Tasks can be created from the top-bar Create, independently of any Style. User also explicitly chose NOT to have Collection as an issue type — Collection is a text custom field (`customfield_10123`). Both are deliberate design decisions documented in README.md Steps 5b and 10. The memory spec this finding was compared against (`subtasks_and_create_dialog.md`, which says "Create dialog needs 3 distinct flows (Style/Collection/Sub-task)") is now stale. No action needed; update memory spec instead.
 
 ### [NOTE-001] Site is on a trial — 15 days remaining as of 2026-04-22
 - **Where:** Top nav bar
@@ -145,6 +153,7 @@ Each finding lists: **Where** (location in Jira) · **Repro** (steps) · **Expec
   - If attribute-only → rename the existing field to "Collection name" so it's clearly a label, and drop the issue-type plan.
   - If hierarchical (recommended given user memory) → add Collection as an issue type at hierarchyLevel 1, migrate the text values into real Collection issues, and set Style's Parent to the Collection issue.
 - **Severity:** MAJOR
+- **[BUILDER CONTEXT — reclassify to CORRECT-BY-DESIGN, 2026-04-22]:** User explicitly pivoted Collection from a managed single-select dropdown (with 6 seeded options like "Bridal Classic", "Twinkling Collection") to free-text on 2026-04-22, verbatim request: *"remove the list or dropdown for the collection field. change it to text only."* Rationale: admin-managed option lists were friction; free-text allows flexibility during rollout. Upgrade path to a PD-project-entity Collection architecture is preserved (~30 min migration, documented in README.md Step 10). No action needed unless DDLNY opts back into structured Collections.
 
 ### [MAJOR-005] Jewelry-critical fields are free-text instead of pick-lists
 - **Where:** Custom fields on Style
@@ -162,6 +171,7 @@ Each finding lists: **Where** (location in Jira) · **Repro** (steps) · **Expec
 - **Why it matters:** Per user memory (*Dropdown conventions*) these are exactly the kind of fields that must be "always alphabetical, always correct spellings; silently correct user typos." Free-text invites "Round" / "round" / "rd" / "rnd" drift, which breaks every filter and report on Diamond/Gemstone attributes. DDLNY-India QC and NYC purchasing will diverge on vocabulary.
 - **Fix:** Convert each of the 4 fields from `textfield` to `select` (single) or `multiselect`. Pre-populate with a canonical alphabetical list (Round, Princess, Cushion, Emerald, Oval, Pear, Marquise, Asscher, Radiant, Heart, Baguette… etc. for shapes; D-Z colorless scale + fancy colors for Diamond Color; Ruby, Sapphire, Emerald, Tanzanite… for Gemstone Types). Lock the field so vendors can only pick, not type.
 - **Severity:** MAJOR
+- **[BUILDER CONTEXT — reclassify to CORRECT-BY-DESIGN, 2026-04-22]:** User explicitly requested these 4 fields as TEXT, not pick-lists. Verbatim: *"diamond color(text), diamond shapes(text), gemostone types (text), gemstone shapes (text)."* Conscious trade-off: flexibility > canonical-list enforcement at this stage. The audit's concern about data drift ("Round / round / rd / rnd") is valid — if it becomes an operational problem, conversion to select fields is still a one-shot script (same pattern as the Diamond Type single-select → multi-select migration we did on 2026-04-22). No action needed right now.
 
 ### [CORRECT-BY-DESIGN] "DDLNY Style #" (customfield_10071) null-through-PO is a lifecycle pattern, not a bug — verified
 - **Where:** customfield_10071 across all 27 DNJ issues
@@ -270,6 +280,7 @@ Other system-managed custom fields exist (Story points, Sprint, Rank, etc.) inhe
 - **Observed description:** *"DNJ vendor - Styles, Collections, Sub-tasks. Managed by DDLNY PD team."* — yet only Style and Task issue types exist; no Collection type, no Sub-task type (confirmed by API earlier). Description overstates capabilities.
 - **Fix:** either add the missing issue types (per MAJOR-001) or edit the description to match reality. Also, the description says "Sub-tasks" — the label in Jira is usually singular "Sub-task". Minor stylistic tidy.
 - **Severity:** MINOR
+- **[BUILDER CONTEXT, 2026-04-22]:** Description was accurate at project creation time (MAJOR-001 explains why the spec changed since). Collection is now a text field, not an issue type; Sub-task was renamed to Task and restructured. User confirmed the description SHOULD be updated to something like *"DNJ vendor - Styles and Tasks. Managed by DDLNY PD team."* but instructed on 2026-04-22 to defer applying the fix until a separate fix round. This finding remains VALID as documentation-debt; the audit correctly identified the mismatch between description and reality.
 
 ### [MINOR-006] Project admin UI labels DNJ as a "space" — Jira/Confluence terminology bleed
 - **Where:** Project settings left sidebar header reads "Space settings" and breadcrumb shows "Spaces / DNJ / Project settings".
@@ -357,6 +368,7 @@ Groups used (three, referenced by name — not via Project Roles):
 - **After fix:** vendors see the top-bar "Create" button either disabled or hidden (Jira handles both). aary-test should get a "You do not have permission to create" error if they attempt the REST endpoint directly.
 - **Dependent finding to test in Layer C:** once this is fixed, confirm via aary-test session that the Create button is gone / disabled.
 - **Severity:** BLOCKER — unrestricted vendor creation is a data-integrity risk.
+- **[BUILDER CONTEXT, 2026-04-22]:** The permission exists because of the EARLIER build-session decision (pre-audit). User verbatim at that time: *"most of the time DDLNY creates styles but sometimes even vendors can create styles."* Based on that, CREATE_ISSUES was granted to `dnj-vendor` in the permission scheme. User REVISED the decision during the audit-review session on 2026-04-22: *"vendor CAN'T create ANYTHING."* This finding is therefore VALID — the permission scheme still carries the old decision and must be corrected. Fix (remove CREATE_ISSUES from `dnj-vendor` group in scheme id 10102) not yet applied; user instructed on 2026-04-22 to defer the actual Jira-site change to a separate fix round. Re-apply at fix time.
 
 ### [MINOR-007] Vendors cannot **Delete Own Comments**
 - **Observed:** Delete Own Comments → ddlny-nyc + ddlny-india, not dnj-vendor.
@@ -377,6 +389,7 @@ Groups used (three, referenced by name — not via Project Roles):
   - *Light:* add a Validator on each transition asserting the source status must be an allowed predecessor (e.g. PO transition validates source ∈ {Design, CAD, Sample Production-return, Hold}).
   - *Heavy:* redefine transitions as status-specific (remove global, add explicit edges), giving you a proper directed graph.
 - **Severity:** BLOCKER — makes phase-order-based reporting, time-in-status dashboards, and "Received before Approved" invariants impossible to assert.
+- **[BUILDER CONTEXT — reclassify to CORRECT-BY-DESIGN, 2026-04-22]:** User explicitly chose "full freedom" workflow over directed status-to-status edges on 2026-04-22. Rationale verbatim: *"in fact only DDLNY NYC [changes phases]... i was thinking of giving full freedom. DDLNY NYC peeps can change a style from any phases to any phase anytime."* The trust model (only DDLNY NYC + DDLNY India transition, per workflow conditions) is what protects the workflow, not phase-order enforcement. Workflow CONDITIONS on each global transition DO role-gate WHO can move the work item (confirmed elsewhere in this audit: NYC-only for 10 transitions, NYC+India for QC / In Transit / Repair). Phase-order enforcement was deliberately traded away; documented in README.md Step 3 (transition philosophy section). User acknowledged the trade-off regarding phase-order reporting. No action needed unless DDLNY later decides the trade-off was wrong.
 
 ### [BLOCKER-008] All workflow transitions have EMPTY "Perform actions" — no post-function sets Resolution (confirms BLOCKER-004 at the workflow layer)
 - **Where:** Transition rules panel for every transition

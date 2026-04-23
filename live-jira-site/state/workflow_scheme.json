@@ -1,0 +1,17 @@
+{
+  "note": "Workflow scheme associated with the DNJ project. Maps each issue type to a workflow.",
+  "scheme": {
+    "id": 10102,
+    "name": "DNJ Workflow Scheme",
+    "defaultWorkflow": "jira",
+    "issueTypeMappings": {
+      "10080": "DNJ Style Workflow"
+    },
+    "associated_project_ids": ["10068"]
+  },
+  "effective_mapping": {
+    "Style (10080)": "DNJ Style Workflow (14 statuses, full freedom)",
+    "Collection (10000)": "jira (To Do -> In Progress -> Done)",
+    "Sub-task (10081)": "jira (To Do -> In Progress -> Done)"
+  }
+}

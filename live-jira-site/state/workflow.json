@@ -1,0 +1,26 @@
+{
+  "note": "DNJ Style Workflow — full-freedom for DDLNY NYC; India restricted to 3 India-relevant targets via workflow conditions.",
+  "name": "DNJ Style Workflow",
+  "id": "c033275e-560c-4ec2-a24c-6c157af7d0a5",
+  "status_count": 13,
+  "transition_count_total": 14,
+  "transition_count_initial": 1,
+  "transition_count_global": 13,
+  "conditions": {
+    "rule_used": "system:restrict-issue-transition",
+    "applied_to_all_global_transitions": true,
+    "applied_to_initial_transition": false,
+    "nyc_only_targets": [
+      "Concept / R&D", "Design", "CAD", "PO", "Sample Production",
+      "Received by DDLNY NYC", "Approved", "Credit", "Hold", "Cancelled"
+    ],
+    "nyc_plus_india_targets": [
+      "QC by DDLNY India", "In Transit to NYC", "Repair"
+    ]
+  },
+  "design": {
+    "type": "full-freedom-for-NYC, restricted-for-India",
+    "initial_status": "Concept / R&D",
+    "rationale": "DDLNY NYC has full transition power. DDLNY India restricted to India-relevant targets (QC, In Transit NYC, Repair). Vendors have no transition permission at all (blocked at permission scheme level, not workflow condition)."
+  }
+}

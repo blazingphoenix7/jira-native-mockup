@@ -4,6 +4,32 @@
 > Generated 2026-04-22 by the build session.
 > New chat will have browser control via the Claude Chrome extension installed on Brave.
 
+## 0. One-time Mac setup (before first Claude chat)
+
+If you're on a fresh machine (macOS / different PC), do these once:
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/blazingphoenix7/jira-native-mockup.git
+   cd jira-native-mockup
+   ```
+
+2. **Create `.env`** at the repo root with (get JIRA_TOKEN from your existing Windows `.env` or regenerate at `https://id.atlassian.com/manage-profile/security/api-tokens`):
+   ```
+   JIRA_SITE=ddlny-pd.atlassian.net
+   JIRA_EMAIL=aaryan@ddlny.com
+   JIRA_TOKEN=<your API token>
+   ```
+
+3. **Set up the two browsers on this machine:**
+   - **Brave** → log into `aaryan@ddlny.com` (admin). Install Claude for Chrome extension.
+   - **Chrome** → log into `cambridgeaaryan405@gmail.com` (aary-test / dnj-vendor). Install Claude for Chrome extension.
+   - Confirm avatars: "AM" on Brave, "AT" on Chrome.
+
+4. **Open Claude Code** in this repo directory (macOS Claude app → Code menu → open folder). Then paste the prompt from this file and tell Claude: *"follow `live-jira-site/audit/fix-instructions.md`"*.
+
+All file paths below are **repo-relative**. No absolute Windows/Mac paths.
+
 ---
 
 I have a Jira Cloud site (ddlny-pd.atlassian.net) that's been audited. You need to fix it.
@@ -14,14 +40,16 @@ Use the right tool for each fix — some things are API-friendly, others are UI-
 1. `live-jira-site/audit/findings.md` — 30+ findings, severity-ranked.
    Pay special attention to `[BUILDER CONTEXT]` annotations — those override original audit text.
 2. `live-jira-site/README.md` — build log; every config decision documented with user-reasoning.
-3. `C:\Users\AaryanMehta\.claude\projects\C--Users-AaryanMehta-Downloads-jira\memory\MEMORY.md`
-   plus linked files in that folder — project-level preferences.
+3. `live-jira-site/memory-snapshot/MEMORY.md` plus the files it links — project-level preferences
+   snapshotted from the Windows build machine. Read the `live-jira-site/memory-snapshot/README.md`
+   FIRST for caveats about stale entries.
 4. `live-jira-site/state/*.json` — current Jira state snapshots. USE these for IDs (project 10068,
    scheme 10102, workflow c033275e-560c-4ec2-a24c-6c157af7d0a5, etc.).
 
 ## Credentials
-`.env` at `C:\Users\AaryanMehta\Downloads\jira\.env`. Keys: `JIRA_SITE`, `JIRA_EMAIL`,
-`JIRA_TOKEN`. Basic Auth on REST calls. Base URL: `https://${JIRA_SITE}/rest/api/3/`
+`.env` at the repo root. Keys: `JIRA_SITE`, `JIRA_EMAIL`, `JIRA_TOKEN`. Basic Auth on REST
+calls. Base URL: `https://${JIRA_SITE}/rest/api/3/`. If `.env` is missing, stop and ask
+the user to create it per step 0.2 above.
 
 ## Browser control (Claude Chrome extension)
 User has **two browsers open, each logged in as a different persona** — this is a deliberate

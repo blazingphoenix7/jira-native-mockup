@@ -1,0 +1,190 @@
+{
+  "note": "Test data import: 24 rich Styles across 13 phases with progression history + comments.",
+  "imported": [
+    {
+      "jira_key": "DNJ-1",
+      "jira_id": "10041",
+      "style_no": "D53 MAR 260145",
+      "target_phase": "Concept / R&D",
+      "mockup_item": "DNJ-536"
+    },
+    {
+      "jira_key": "DNJ-2",
+      "jira_id": "10042",
+      "style_no": "3kt sample Lab testing report",
+      "target_phase": "Concept / R&D",
+      "mockup_item": "DNJ-588"
+    },
+    {
+      "jira_key": "DNJ-3",
+      "jira_id": "10043",
+      "style_no": "R256253LY",
+      "target_phase": "Design",
+      "mockup_item": "DNJ-025"
+    },
+    {
+      "jira_key": "DNJ-4",
+      "jira_id": "10044",
+      "style_no": "D39 JAN 260010",
+      "target_phase": "Design",
+      "mockup_item": "DNJ-012"
+    },
+    {
+      "jira_key": "DNJ-5",
+      "jira_id": "10045",
+      "style_no": "R253146LY",
+      "target_phase": "CAD",
+      "mockup_item": "DNJ-207"
+    },
+    {
+      "jira_key": "DNJ-6",
+      "jira_id": "10046",
+      "style_no": "D43 NOV 250978",
+      "target_phase": "CAD",
+      "mockup_item": "DNJ-027"
+    },
+    {
+      "jira_key": "DNJ-7",
+      "jira_id": "10047",
+      "style_no": "R253135LYWB",
+      "target_phase": "PO",
+      "mockup_item": "DNJ-029"
+    },
+    {
+      "jira_key": "DNJ-8",
+      "jira_id": "10048",
+      "style_no": "ExL253170LY",
+      "target_phase": "PO",
+      "mockup_item": "DNJ-020"
+    },
+    {
+      "jira_key": "DNJ-9",
+      "jira_id": "10049",
+      "style_no": "R210276WA015",
+      "target_phase": "Sample Production",
+      "mockup_item": "DNJ-035"
+    },
+    {
+      "jira_key": "DNJ-10",
+      "jira_id": "10050",
+      "style_no": "EXL263034LY",
+      "target_phase": "Sample Production",
+      "mockup_item": "DNJ-001"
+    },
+    {
+      "jira_key": "DNJ-11",
+      "jira_id": "10051",
+      "style_no": "RX253150LY",
+      "target_phase": "QC by DDLNY India",
+      "mockup_item": "DNJ-031"
+    },
+    {
+      "jira_key": "DNJ-12",
+      "jira_id": "10052",
+      "style_no": "EXL253173LY",
+      "target_phase": "QC by DDLNY India",
+      "mockup_item": "DNJ-002"
+    },
+    {
+      "jira_key": "DNJ-13",
+      "jira_id": "10053",
+      "style_no": "RX253144LY",
+      "target_phase": "In Transit to NYC",
+      "mockup_item": "DNJ-033"
+    },
+    {
+      "jira_key": "DNJ-14",
+      "jira_id": "10054",
+      "style_no": "EX253178LY",
+      "target_phase": "In Transit to NYC",
+      "mockup_item": "DNJ-069"
+    },
+    {
+      "jira_key": "DNJ-15",
+      "jira_id": "10055",
+      "style_no": "RX253145LY",
+      "target_phase": "Received by DDLNY NYC",
+      "mockup_item": "DNJ-034"
+    },
+    {
+      "jira_key": "DNJ-16",
+      "jira_id": "10056",
+      "style_no": "EX263006LY",
+      "target_phase": "Received by DDLNY NYC",
+      "mockup_item": "DNJ-071"
+    },
+    {
+      "jira_key": "DNJ-17",
+      "jira_id": "10057",
+      "style_no": "RXL253160LY",
+      "target_phase": "Approved",
+      "mockup_item": "DNJ-063"
+    },
+    {
+      "jira_key": "DNJ-18",
+      "jira_id": "10058",
+      "style_no": "EX263005LY",
+      "target_phase": "Approved",
+      "mockup_item": "DNJ-073"
+    },
+    {
+      "jira_key": "DNJ-19",
+      "jira_id": "10059",
+      "style_no": "PX253106Y",
+      "target_phase": "Approved",
+      "mockup_item": "DNJ-100"
+    },
+    {
+      "jira_key": "DNJ-20",
+      "jira_id": "10060",
+      "style_no": "RX263013LY",
+      "target_phase": "Repair",
+      "mockup_item": "DNJ-017"
+    },
+    {
+      "jira_key": "DNJ-21",
+      "jira_id": "10061",
+      "style_no": "PDX140180LB",
+      "target_phase": "Repair",
+      "mockup_item": "DNJ-605"
+    },
+    {
+      "jira_key": "DNJ-22",
+      "jira_id": "10062",
+      "style_no": "R256194LY",
+      "target_phase": "Credit",
+      "mockup_item": "DNJ-016"
+    },
+    {
+      "jira_key": "DNJ-23",
+      "jira_id": "10063",
+      "style_no": "D39 OCT 250606",
+      "target_phase": "Hold",
+      "mockup_item": "DNJ-090"
+    },
+    {
+      "jira_key": "DNJ-24",
+      "jira_id": "10064",
+      "style_no": "D39 NOV 250665",
+      "target_phase": "Cancelled",
+      "mockup_item": "DNJ-011"
+    }
+  ],
+  "collection_options_added": [
+    "1KT Line",
+    "Bridal Classic",
+    "Everyday Stackables",
+    "LGD Signature",
+    "Men's Collection",
+    "Twinkling Collection"
+  ],
+  "labels_options_added": [
+    "1KT",
+    "Bridal",
+    "Engagement",
+    "Everyday",
+    "Holiday",
+    "Rush",
+    "Signature"
+  ]
+}
